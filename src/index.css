@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .glow-ring {
+    position: relative;
+    z-index: 1;
+  }
+
+  .glow-ring::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: 9999px;
+    background: conic-gradient(#0d9488, #22d3ee, #0d9488);
+    animation: spin 4s linear infinite;
+    z-index: -1;
+    filter: blur(12px);
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .glow-ring:hover::before {
+    animation-play-state: paused;
+  }
+}

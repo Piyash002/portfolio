@@ -35,8 +35,8 @@ const Contact = () => {
           </button>
         </form>
         <div className="text-center mt-6 text-gray-600">
-          📞 +880123456789 <br />
-          📧 piyash@example.com
+          📞 +8801518436521 <br />
+          📧 piyash5i@gmail.com
         </div>
       </div>
     </section>

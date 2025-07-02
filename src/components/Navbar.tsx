@@ -1,37 +1,45 @@
 import { useState } from "react";
+import { HashLink } from "react-router-hash-link";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Blogs", href: "#blogs" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", to: "/#home" },
+    { name: "About", to: "/#about" },
+    { name: "Skills", to: "/#skills" },
+    { name: "Projects", to: "/#projects" },
+    { name: "Blogs", to: "/#blogs" },
+    { name: "Contact", to: "/#contact" },
   ];
 
   return (
     <nav className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <a href="#home" className="text-2xl font-bold text-teal-700">
+        <HashLink
+          smooth
+          to="/#home"
+          className="text-2xl font-bold text-teal-700"
+          onClick={() => setIsOpen(false)}
+        >
           Piyash.dev
-        </a>
+        </HashLink>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
-            <a
+            <HashLink
               key={link.name}
-              href={link.href}
+              smooth
+              to={link.to}
               className="text-gray-700 hover:text-teal-600 font-medium transition"
+              onClick={() => setIsOpen(false)}
             >
               {link.name}
-            </a>
+            </HashLink>
           ))}
           <a
-            href="/resume.pdf"
+            href="/piyash's Cv.pdf"
             download
             className="px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition"
           >
@@ -52,9 +60,19 @@ const Navbar = () => {
             viewBox="0 0 24 24"
           >
             {isOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             )}
           </svg>
         </button>
@@ -64,14 +82,15 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2">
           {navLinks.map((link) => (
-            <a
+            <HashLink
               key={link.name}
-              href={link.href}
+              smooth
+              to={link.to}
               onClick={() => setIsOpen(false)}
               className="block text-gray-700 hover:text-teal-600"
             >
               {link.name}
-            </a>
+            </HashLink>
           ))}
           <a
             href="/resume.pdf"
