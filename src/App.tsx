@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -8,25 +8,22 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import ProjectDetails from "./pages/ProjectDetails";
+import Blogs from "./pages/Blogs";
+import BlogDetails from "./pages/BlogDetails";
+
 import AnimatedPageWrapper from "./utils/AnimatedPageWrapper";
 import LoadingSpinner from "./components/LoadingSpinner";
 
 function App() {
   const location = useLocation();
-  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
 
-  // Listen for navigation start/end events:
   useEffect(() => {
-    // When location changes, show loading spinner for a bit
     setLoading(true);
-
-    // Simulate loading duration (e.g. network delay or animation)
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 400); // duration matches Framer Motion exit animation
-
+    }, 400);
     return () => clearTimeout(timeout);
   }, [location.pathname]);
 
@@ -50,6 +47,22 @@ function App() {
             element={
               <AnimatedPageWrapper>
                 <ProjectDetails />
+              </AnimatedPageWrapper>
+            }
+          />
+          <Route
+            path="/blogs"
+            element={
+              <AnimatedPageWrapper>
+                <Blogs />
+              </AnimatedPageWrapper>
+            }
+          />
+          <Route
+            path="/blogs/:id"
+            element={
+              <AnimatedPageWrapper>
+                <BlogDetails />
               </AnimatedPageWrapper>
             }
           />

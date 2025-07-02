@@ -1,19 +1,38 @@
+import { Link } from "react-router-dom";
+
 const Blogs = () => {
   const blogs = [
-    { title: "React Router Explained", summary: "Learn the basics of routing in React..." },
-    { title: "How to Deploy with Vite", summary: "Step-by-step guide to deploy with Netlify..." },
+    {
+      id: "node-js-architecture",
+      title: "Node.js Architecture",
+      summary: "Understand how Node.js handles requests using a single-threaded event loop.",
+    },
+    {
+      id: "js-fundamentals",
+      title: "JavaScript Fundamentals",
+      summary: "Learn the core concepts of JS like scope, closures, and async/await.",
+    },
   ];
 
   return (
-    <section id="blogs" className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-teal-600 mb-10">Blog</h2>
+        <h2 className="text-4xl font-bold text-center text-teal-600 mb-12">Blogs</h2>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {blogs.map((b, i) => (
-            <div key={i} className="bg-white p-6 rounded shadow hover:shadow-md">
-              <h3 className="text-xl font-semibold mb-2">{b.title}</h3>
-              <p className="text-gray-600">{b.summary}</p>
+        <div className="grid gap-8 md:grid-cols-2">
+          {blogs.map((b) => (
+            <div
+              key={b.id}
+              className="bg-white rounded-xl shadow hover:shadow-xl p-6 transition"
+            >
+              <h3 className="text-2xl font-semibold text-gray-800 mb-3">{b.title}</h3>
+              <p className="text-gray-600 mb-4">{b.summary}</p>
+              <Link
+                to={`/blogs/${b.id}`}
+                className="text-teal-600 font-medium hover:underline"
+              >
+                Read More →
+              </Link>
             </div>
           ))}
         </div>

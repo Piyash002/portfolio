@@ -35,16 +35,16 @@ const projectList = [
     live: "https://nirvor.net/",
     github: "https://github.com/Piyash002/OnlineExamApp",
   },
-  {
-    id: "blog",
-    title: "Blog Platform",
-    desc: "Next.js, MongoDB, Auth",
-    full: "Blogging platform with markdown editor & dashboard.",
-    images: ["https://via.placeholder.com/600x300?text=Blog"],
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    live: "https://blog.vercel.app",
-    github: "https://github.com/your/blog",
-  },
+//   {
+//     id: "blog",
+//     title: "Blog Platform",
+//     desc: "Next.js, MongoDB, Auth",
+//     full: "Blogging platform with markdown editor & dashboard.",
+//     images: ["https://via.placeholder.com/600x300?text=Blog"],
+//     video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+//     live: "https://blog.vercel.app",
+//     github: "https://github.com/your/blog",
+//   },
 ];
 
 const ProjectDetails = () => {
@@ -123,7 +123,7 @@ const ProjectDetails = () => {
       )}
 
       {/* Video Preview */}
-      {project.video && (
+      {/* {project.video && (
         <div className="mb-6">
           <iframe
             src={project.video}
@@ -133,7 +133,7 @@ const ProjectDetails = () => {
             allowFullScreen
           ></iframe>
         </div>
-      )}
+      )} */}
 
       {/* Description */}
       <p className="text-gray-600 mb-6 leading-relaxed">{project.full}</p>

@@ -11,15 +11,15 @@ const projects = [
   {
     id: "OnlineExamApp",
     title: "Online Exam App",
-    desc: "React, Tailwind, Vite",
+    desc: "Next,MongoDB,Express,Tailwind,Shadcn ",
     image: "/examapp/Screenshot (219).png",
   },
-  {
-    id: "blog",
-    title: "Blog Platform",
-    desc: "Next.js, MongoDB, Auth",
-    image: "https://via.placeholder.com/600x400?text=Blog",
-  },
+  // {
+  //   id: "blog",
+  //   title: "Blog Platform",
+  //   desc: "Next.js, MongoDB, Auth",
+  //   image: "https://via.placeholder.com/600x400?text=Blog",
+  // },
 ];
 
 const Projects = () => {
