@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaWhatsapp } from "react-icons/fa";
+import { Typewriter } from 'react-simple-typewriter'; 
 
+
+// Social links
 const socials = [
   {
     name: "LinkedIn",
@@ -22,9 +25,18 @@ const socials = [
   },
 ];
 
+// Roles to type
+const roles = [
+  "React.js Developer",
+  "Express.js Developer",
+  "MongoDB Expert",
+  "API Engineer",
+  "Problem Solver",
+];
+
 const Hero = () => {
   return (
-    <section id="home" className="bg-[#F0FDF4] py-20 pt-32">
+    <section id="home" className="bg-[#F0FDF4] py-20 pt-32 px-4">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
         {/* Text */}
         <motion.div
@@ -36,8 +48,22 @@ const Hero = () => {
           <h1 className="text-5xl font-bold text-gray-800">
             Hi, I'm <span className="text-teal-600">Piyash</span>
           </h1>
+
+          {/* Typing Role */}
+          <h2 className="text-xl font-medium text-teal-600 h-8">
+            <Typewriter
+              words={roles}
+              loop={0}
+              cursor
+              cursorStyle="|"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1500}
+            />
+          </h2>
+
           <p className="text-gray-600 max-w-lg mx-auto md:mx-0">
-            Full-Stack Developer skilled in MERN stack, building modern, scalable web applications.
+            I build fast, modern, scalable web applications using the MERN stack and beyond.
           </p>
 
           {/* Buttons */}
@@ -81,7 +107,6 @@ const Hero = () => {
                 style={{
                   color: color,
                   border: `2px solid ${color}`,
-                  transition: "all 0.3s ease",
                 }}
               >
                 {icon}
